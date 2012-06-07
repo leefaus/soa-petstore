@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="ProductService" targetNamespace="http://acme.com/services" xmlns:ns1="http://acme.com/services" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:import location="productmultipart.wsdl" namespace="http://acme.com/services">
+    </wsdl:import>
+    <wsdl:binding name="ProductServiceSoapBinding" type="ns1:ProductService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="retrieveProductsForCategory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="retrieveProductsForCategory">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveProductsForCategoryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ProductService">
+        <wsdl:port binding="ns1:ProductServiceSoapBinding" name="ProductPortType">
+            <soap:address location="http://localhost:8080/reference-app/services/ProductService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

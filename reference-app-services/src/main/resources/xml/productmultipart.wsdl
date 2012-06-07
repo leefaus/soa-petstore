@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="ProductService" targetNamespace="http://acme.com/services" xmlns:ns1="http://acme.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://acme.com/services"
+                        schemaLocation="product.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="retrieveProductsForCategoryResponse">
+        <wsdl:part element="ns1:retrieveProductsForCategoryResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="retrieveProductsForCategory">
+        <wsdl:part element="ns1:retrieveProductsForCategory" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ProductService">
+        <wsdl:operation name="retrieveProductsForCategory">
+            <wsdl:input message="ns1:retrieveProductsForCategory" name="retrieveProductsForCategory">
+            </wsdl:input>
+            <wsdl:output message="ns1:retrieveProductsForCategoryResponse" name="retrieveProductsForCategoryResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,40 @@
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://acme.com/services" version="1.0"
+           xmlns:ns1="http://acme.com/services"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="retrieveProductsForCategory" type="ns1:retrieveProductsForCategory"/>
+    <xs:element name="retrieveProductsForCategoryResponse" type="ns1:retrieveProductsForCategoryResponse"/>
+    <xs:complexType name="retrieveProductsForCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveProductsForCategoryResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="products">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="product" type="ns1:product"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="productId" type="xs:string"/>
+            <xs:element minOccurs="0" name="category" type="ns1:category"/>
+            <xs:element minOccurs="0" name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="category">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
+            <xs:element minOccurs="0" name="name" type="xs:string"/>
+            <xs:element minOccurs="0" name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="category" type="ns1:category"/>
+    <xs:element name="product" type="ns1:product"/>
+    <!-- Jim's WSDL -->
+</xs:schema>

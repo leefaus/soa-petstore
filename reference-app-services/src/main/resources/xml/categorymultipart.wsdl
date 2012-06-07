@@ -1,0 +1,22 @@
+<definitions xmlns:ns1="http://acme.com/services" xmlns="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CategoryService"
+                  targetNamespace="http://acme.com/services">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://acme.com/services"
+                        schemaLocation="category.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="findAllCategoriesResponse">
+        <part element="ns1:findAllCategoriesResponse" name="parameters"/>
+    </message>
+    <message name="findAllCategories">
+        <part element="ns1:findAllCategories" name="parameters"/>
+    </message>
+    <portType name="CategoryService">
+        <operation name="findAllCategories">
+            <input message="ns1:findAllCategories" name="findAllCategories" />
+            <output message="ns1:findAllCategoriesResponse" name="findAllCategoriesResponse" />
+        </operation>
+    </portType>
+</definitions>
