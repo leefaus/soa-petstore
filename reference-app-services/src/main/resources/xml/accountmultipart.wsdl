@@ -1,0 +1,106 @@
+<wsdl:definitions xmlns:ns1="http://services.acme.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountService"
+                  targetNamespace="http://services.acme.com/">
+    <wsdl:types>
+        <xs:schema xmlns:ns1="http://pets.acme.com/schemas/jpetstore" xmlns:tns="http://services.acme.com/"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified"
+                   targetNamespace="http://services.acme.com/" version="1.0">
+            <xs:import namespace="http://pets.acme.com/schemas/jpetstore"/>
+            <xs:element name="deleteAccount" type="tns:deleteAccount"/>
+            <xs:element name="deleteAccountResponse" type="tns:deleteAccountResponse"/>
+            <xs:element name="modifyAccount" type="tns:modifyAccount"/>
+            <xs:element name="modifyAccountResponse" type="tns:modifyAccountResponse"/>
+            <xs:complexType name="modifyAccount">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:Account"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Account">
+                <xs:sequence>
+                    <xs:element name="AccountId" type="xs:string"/>
+                    <xs:element name="UserName" type="xs:string"/>
+                    <xs:element name="LastName" type="xs:string"/>
+                    <xs:element name="FirstName" type="xs:string"/>
+                    <xs:element name="EmailAddress" type="xs:string"/>
+                    <xs:element name="HomePhone" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CellPhone" type="xs:string"/>
+                    <xs:element name="HomeAddress" type="tns:Address"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="CreditCard" type="tns:CreditCard"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Address">
+                <xs:sequence>
+                    <xs:element name="AddressId" type="xs:string"/>
+                    <xs:element name="Street1" type="xs:string"/>
+                    <xs:element minOccurs="0" name="Street2" type="xs:string"/>
+                    <xs:element name="City" type="xs:string"/>
+                    <xs:element name="State" type="xs:string"/>
+                    <xs:element name="ZipCode" type="xs:string"/>
+                    <xs:element name="Country" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CreditCard">
+                <xs:sequence>
+                    <xs:element name="CreditCardId" type="xs:string"/>
+                    <xs:element name="Type" type="tns:CreditCardType"/>
+                    <xs:element name="Number" type="xs:string"/>
+                    <xs:element name="Expiration" type="xs:string"/>
+                    <xs:element name="BillingAddress" type="tns:Address"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="modifyAccountResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="account" type="tns:Account"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="deleteAccount">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="arg0" type="tns:Account"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="deleteAccountResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="return" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="CreditCardType">
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="VISA"/>
+                    <xs:enumeration value="MasterCard"/>
+                    <xs:enumeration value="AMEX"/>
+                    <xs:enumeration value="Discover"/>
+                    <xs:enumeration value="Diners Club"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:schema>
+        <xs:schema xmlns:ns1="http://services.acme.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   targetNamespace="http://pets.acme.com/schemas/jpetstore" version="1.0">
+            <xs:import namespace="http://services.acme.com/"/>
+            <xs:element name="Account" type="ns1:Account"/>
+            <xs:element name="Address" type="ns1:Address"/>
+            <xs:element name="CreditCard" type="ns1:CreditCard"/>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="deleteAccountResponse">
+        <wsdl:part element="ns1:deleteAccountResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteAccount">
+        <wsdl:part element="ns1:deleteAccount" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="modifyAccountResponse">
+        <wsdl:part element="ns1:modifyAccountResponse" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="modifyAccount">
+        <wsdl:part element="ns1:modifyAccount" name="parameters"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="AccountService">
+        <wsdl:operation name="modifyAccount">
+            <wsdl:input message="ns1:modifyAccount" name="modifyAccount"></wsdl:input>
+            <wsdl:output message="ns1:modifyAccountResponse" name="modifyAccountResponse"></wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteAccount">
+            <wsdl:input message="ns1:deleteAccount" name="deleteAccount"></wsdl:input>
+            <wsdl:output message="ns1:deleteAccountResponse" name="deleteAccountResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
