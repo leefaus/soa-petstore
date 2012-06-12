@@ -1,17 +1,23 @@
 package com.acme.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "category",
-                namespace = "http://pets.acme.com/schemas/jpetstore")
+@XmlType(name = "Category", propOrder = {
+        "categoryId",
+        "name",
+        "description"
+})
+@XmlRootElement(name = "Category",
+        namespace = "http://pets.acme.com/schemas/jpetstore")
 public class Category implements Serializable {
     private static final long serialVersionUID = -7454630869604964843L;
+    @XmlElement(name = "CategoryId", required = true)
     private String categoryId;
+    @XmlElement(name = "Name", required = true)
     private String name;
+    @XmlElement(name = "Description", required = true)
     private String description;
 
     public String getCategoryId() {
