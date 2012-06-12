@@ -18,4 +18,10 @@
     </jaxws:endpoint>
 
 
+    <jaxws:endpoint
+            id="accountService"
+            implementor="com.acme.services.AccountServiceImpl"
+            address="/AccountService">
+    </jaxws:endpoint>
+
 </beans>
