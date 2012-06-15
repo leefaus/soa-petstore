@@ -9,8 +9,8 @@ import java.util.List;
         name = "OrderService",
         serviceName = "OrderService",
         portName = "OrderPortType",
-        targetNamespace = "http://acme.com/services")
-        // wsdlLocation = "xml/orderservices.wsdl")
+        targetNamespace = "http://acme.com/services",
+        wsdlLocation = "xml/orderservice.wsdl")
 public class OrderServiceImpl implements OrderService {
     @Override
     public Order submitOrder(Order order, String accoutId) {

@@ -1,0 +1,60 @@
+<wsdl:definitions xmlns:ns1="http://acme.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OrderService" targetNamespace="http://acme.com/services">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://acme.com/services"
+                        schemaLocation="order.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="getOrderStatus">
+        <wsdl:part element="ns1:getOrderStatus" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="cancelOrder">
+        <wsdl:part element="ns1:cancelOrder" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyOrderResponse">
+        <wsdl:part element="ns1:modifyOrderResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyOrder">
+        <wsdl:part element="ns1:modifyOrder" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="cancelOrderResponse">
+        <wsdl:part element="ns1:cancelOrderResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="submitOrderResponse">
+        <wsdl:part element="ns1:submitOrderResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="submitOrder">
+        <wsdl:part element="ns1:submitOrder" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveOrdersforAccount">
+        <wsdl:part element="ns1:retrieveOrdersforAccount" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="getOrderStatusResponse">
+        <wsdl:part element="ns1:getOrderStatusResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveOrdersforAccountResponse">
+        <wsdl:part element="ns1:retrieveOrdersforAccountResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="OrderService">
+        <wsdl:operation name="cancelOrder">
+            <wsdl:input message="ns1:cancelOrder" name="cancelOrder"/>
+            <wsdl:output message="ns1:cancelOrderResponse" name="cancelOrderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="modifyOrder">
+            <wsdl:input message="ns1:modifyOrder" name="modifyOrder"/>
+            <wsdl:output message="ns1:modifyOrderResponse" name="modifyOrderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="submitOrder">
+            <wsdl:input message="ns1:submitOrder" name="submitOrder"/>
+            <wsdl:output message="ns1:submitOrderResponse" name="submitOrderResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveOrdersforAccount">
+            <wsdl:input message="ns1:retrieveOrdersforAccount" name="retrieveOrdersforAccount"/>
+            <wsdl:output message="ns1:retrieveOrdersforAccountResponse" name="retrieveOrdersforAccountResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getOrderStatus">
+            <wsdl:input message="ns1:getOrderStatus" name="getOrderStatus"/>
+            <wsdl:output message="ns1:getOrderStatusResponse" name="getOrderStatusResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
