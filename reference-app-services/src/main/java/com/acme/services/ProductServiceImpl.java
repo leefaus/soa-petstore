@@ -16,4 +16,19 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> retrieveProductsForCategory(String categoryId) {
         return null;
     }
+
+    @Override
+    public String deleteProduct(String productId) {
+        return null;
+    }
+
+    @Override
+    public Product modifyProduct(Product product) {
+        return null;
+    }
+
+    @Override
+    public Product retrieveProduct(String productId) {
+        return null;
+    }
 }
