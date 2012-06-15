@@ -1,24 +1,53 @@
-<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="ProductService" targetNamespace="http://acme.com/services" xmlns:ns1="http://acme.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="ProductService" targetNamespace="http://acme.com/services" xmlns:ns1="http://acme.com/services"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <wsdl:types>
         <xsd:schema>
             <xsd:import namespace="http://acme.com/services"
                         schemaLocation="product.xsd"/>
         </xsd:schema>
     </wsdl:types>
-    <wsdl:message name="retrieveProductsForCategoryResponse">
-        <wsdl:part element="ns1:retrieveProductsForCategoryResponse" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
     <wsdl:message name="retrieveProductsForCategory">
-        <wsdl:part element="ns1:retrieveProductsForCategory" name="parameters">
-        </wsdl:part>
+        <wsdl:part element="ns1:retrieveProductsForCategory" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyProductResponse">
+        <wsdl:part element="ns1:modifyProductResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveProduct">
+        <wsdl:part element="ns1:retrieveProduct" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveProductResponse">
+        <wsdl:part element="ns1:retrieveProductResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteProduct">
+        <wsdl:part element="ns1:deleteProduct" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteProductResponse">
+        <wsdl:part element="ns1:deleteProductResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyProduct">
+        <wsdl:part element="ns1:modifyProduct" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveProductsForCategoryResponse">
+        <wsdl:part element="ns1:retrieveProductsForCategoryResponse" name="parameters"/>
     </wsdl:message>
     <wsdl:portType name="ProductService">
         <wsdl:operation name="retrieveProductsForCategory">
-            <wsdl:input message="ns1:retrieveProductsForCategory" name="retrieveProductsForCategory">
-            </wsdl:input>
-            <wsdl:output message="ns1:retrieveProductsForCategoryResponse" name="retrieveProductsForCategoryResponse">
-            </wsdl:output>
+            <wsdl:input message="ns1:retrieveProductsForCategory" name="retrieveProductsForCategory"/>
+            <wsdl:output message="ns1:retrieveProductsForCategoryResponse"
+                         name="retrieveProductsForCategoryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="modifyProduct">
+            <wsdl:input message="ns1:modifyProduct" name="modifyProduct"/>
+            <wsdl:output message="ns1:modifyProductResponse" name="modifyProductResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveProduct">
+            <wsdl:input message="ns1:retrieveProduct" name="retrieveProduct"/>
+            <wsdl:output message="ns1:retrieveProductResponse" name="retrieveProductResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteProduct">
+            <wsdl:input message="ns1:deleteProduct" name="deleteProduct"/>
+            <wsdl:output message="ns1:deleteProductResponse" name="deleteProductResponse"/>
         </wsdl:operation>
     </wsdl:portType>
 </wsdl:definitions>
