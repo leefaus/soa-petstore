@@ -5,7 +5,6 @@ import com.acme.model.Category;
 import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.List;
-
 @WebService(endpointInterface = "com.acme.services.CategoryService",
         name = "CategoryService",
         serviceName = "CategoryService",
@@ -31,6 +30,10 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category retrieveCategory(String categoryId) {
-        return null;
+        Category cat = new Category();
+        cat.setCategoryId("1234");
+        cat.setName("Cat");
+        cat.setDescription("Cat Fun!");
+        return cat;
     }
 }

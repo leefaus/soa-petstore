@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.acme.jpetstore</groupId>
-    <artifactId>reference-app-services</artifactId>
-    <packaging>jar</packaging>
+    <artifactId>reference-app-services-web</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>jPetStore Spring-CXF Services</name>
     <parent>
@@ -66,18 +66,8 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-            <version>2.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-            <version>2.6.1</version>
-        </dependency>
-        <dependency>
             <groupId>com.acme.jpetstore</groupId>
-            <artifactId>reference-app-model</artifactId>
+            <artifactId>reference-app-services-model</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

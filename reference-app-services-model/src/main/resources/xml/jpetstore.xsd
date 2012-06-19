@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Lee Faus (Fruition Software, Inc.) -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jps="http://services.acme.com/"
-           targetNamespace="http://services.acme.com/" elementFormDefault="qualified"
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jps="http://acme.com/services"
+           targetNamespace="http://acme.com/services" elementFormDefault="qualified"
            attributeFormDefault="unqualified">
     <xs:simpleType name="ShippingType">
         <xs:restriction base="xs:string">
