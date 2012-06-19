@@ -24,4 +24,9 @@ public class AccountServiceImpl implements AccountService {
 
         return "deleted";
     }
+
+    @Override
+    public Account createAccount(Account account){
+        return  account;
+    }
 }

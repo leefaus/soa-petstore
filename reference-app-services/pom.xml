@@ -15,7 +15,7 @@
     <build>
         <finalName>reference-app-services</finalName>
         <plugins>
-            <!--
+<!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
@@ -52,7 +52,7 @@
                     </includeSchemas>
                 </configuration>
             </plugin>
-            -->
+    -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
