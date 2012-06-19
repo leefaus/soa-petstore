@@ -24,4 +24,10 @@
             address="/AccountService">
     </jaxws:endpoint>
 
+    <jaxws:endpoint
+            id="orderService"
+            implementor="com.acme.services.OrderServiceImpl"
+            address="/OrderService">
+    </jaxws:endpoint>
+
 </beans>

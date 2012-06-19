@@ -16,4 +16,13 @@ public interface ProductService {
     @XmlElement(name="product")
     public List<Product> retrieveProductsForCategory(String categoryId);
 
+    @WebMethod
+    public String deleteProduct(String productId);
+
+    @WebMethod
+    public Product modifyProduct(Product product);
+
+    @WebMethod
+    public Product retrieveProduct(String productId);
+
 }

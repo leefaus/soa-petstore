@@ -14,4 +14,11 @@ public interface CategoryService {
     @XmlElementWrapper(name="categories")
     @XmlElement(name="category")
     public List<Category> findAllCategories();
+
+    @WebMethod
+    public String deleteCategory(String categoryId);
+
+    @WebMethod Category modifyCategory(Category category);
+
+    @WebMethod Category retrieveCategory(String categoryId);
 }

@@ -1,6 +1,12 @@
 <xs:schema elementFormDefault="unqualified" targetNamespace="http://acme.com/services" version="1.0"
            xmlns:ns1="http://acme.com/services"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="deleteProduct" type="ns1:deleteProduct"/>
+    <xs:element name="deleteProductResponse" type="ns1:deleteProductResponse"/>
+    <xs:element name="modifyProduct" type="ns1:modifyProduct"/>
+    <xs:element name="modifyProductResponse" type="ns1:modifyProductResponse"/>
+    <xs:element name="retrieveProduct" type="ns1:retrieveProduct"/>
+    <xs:element name="retrieveProductResponse" type="ns1:retrieveProductResponse"/>
     <xs:element name="retrieveProductsForCategory" type="ns1:retrieveProductsForCategory"/>
     <xs:element name="retrieveProductsForCategoryResponse" type="ns1:retrieveProductsForCategoryResponse"/>
     <xs:complexType name="retrieveProductsForCategory">
@@ -13,28 +19,57 @@
             <xs:element minOccurs="0" name="products">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="product" type="ns1:product"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="product" type="ns1:Product"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="product">
+    <xs:complexType name="Product">
         <xs:sequence>
-            <xs:element minOccurs="0" name="productId" type="xs:string"/>
-            <xs:element minOccurs="0" name="category" type="ns1:category"/>
-            <xs:element minOccurs="0" name="name" type="xs:string"/>
-            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element name="ProductId" type="xs:string"/>
+            <xs:element name="Category" type="ns1:Category"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Description" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:complexType name="category">
+    <xs:complexType name="Category">
         <xs:sequence>
-            <xs:element minOccurs="0" name="categoryId" type="xs:string"/>
-            <xs:element minOccurs="0" name="name" type="xs:string"/>
-            <xs:element minOccurs="0" name="description" type="xs:string"/>
+            <xs:element name="CategoryId" type="xs:string"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Description" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-    <xs:element name="category" type="ns1:category"/>
-    <xs:element name="product" type="ns1:product"/>
-    <!-- Jim's WSDL -->
+    <xs:complexType name="modifyProduct">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="ns1:Product"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="modifyProductResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:Product"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveProduct">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="retrieveProductResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="ns1:Product"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteProduct">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteProductResponse">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="return" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="category" type="ns1:Category"/>
+    <xs:element name="product" type="ns1:Product"/>
 </xs:schema>

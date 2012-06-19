@@ -1,22 +1,52 @@
-<definitions xmlns:ns1="http://acme.com/services" xmlns="http://schemas.xmlsoap.org/wsdl/"
+<wsdl:definitions xmlns:ns1="http://acme.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CategoryService"
                   targetNamespace="http://acme.com/services">
-    <types>
+    <wsdl:types>
         <xsd:schema>
             <xsd:import namespace="http://acme.com/services"
                         schemaLocation="category.xsd"/>
         </xsd:schema>
-    </types>
-    <message name="findAllCategoriesResponse">
-        <part element="ns1:findAllCategoriesResponse" name="parameters"/>
-    </message>
-    <message name="findAllCategories">
-        <part element="ns1:findAllCategories" name="parameters"/>
-    </message>
-    <portType name="CategoryService">
-        <operation name="findAllCategories">
-            <input message="ns1:findAllCategories" name="findAllCategories" />
-            <output message="ns1:findAllCategoriesResponse" name="findAllCategoriesResponse" />
-        </operation>
-    </portType>
-</definitions>
+    </wsdl:types>
+    <wsdl:message name="findAllCategories">
+        <wsdl:part element="ns1:findAllCategories" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyCategory">
+        <wsdl:part element="ns1:modifyCategory" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveCategoryResponse">
+        <wsdl:part element="ns1:retrieveCategoryResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteCategory">
+        <wsdl:part element="ns1:deleteCategory" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="modifyCategoryResponse">
+        <wsdl:part element="ns1:modifyCategoryResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="findAllCategoriesResponse">
+        <wsdl:part element="ns1:findAllCategoriesResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="retrieveCategory">
+        <wsdl:part element="ns1:retrieveCategory" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="deleteCategoryResponse">
+        <wsdl:part element="ns1:deleteCategoryResponse" name="parameters"/>
+    </wsdl:message>
+    <wsdl:portType name="CategoryService">
+        <wsdl:operation name="modifyCategory">
+            <wsdl:input message="ns1:modifyCategory" name="modifyCategory"/>
+            <wsdl:output message="ns1:modifyCategoryResponse" name="modifyCategoryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveCategory">
+            <wsdl:input message="ns1:retrieveCategory" name="retrieveCategory"/>
+            <wsdl:output message="ns1:retrieveCategoryResponse" name="retrieveCategoryResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="findAllCategories">
+            <wsdl:input message="ns1:findAllCategories" name="findAllCategories"/>
+            <wsdl:output message="ns1:findAllCategoriesResponse" name="findAllCategoriesResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCategory">
+            <wsdl:input message="ns1:deleteCategory" name="deleteCategory"/>
+            <wsdl:output message="ns1:deleteCategoryResponse" name="deleteCategoryResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

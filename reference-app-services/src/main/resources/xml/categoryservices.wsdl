@@ -6,12 +6,39 @@
                  namespace="http://acme.com/services"/>
     <wsdl:binding name="CategoryServiceSoapBinding" type="ns1:CategoryService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="modifyCategory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="modifyCategory">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="modifyCategoryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="findAllCategories">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="findAllCategories">
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="findAllCategoriesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveCategory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="retrieveCategory">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveCategoryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCategory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteCategory">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteCategoryResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>

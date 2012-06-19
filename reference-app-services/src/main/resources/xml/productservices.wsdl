@@ -3,12 +3,39 @@
     </wsdl:import>
     <wsdl:binding name="ProductServiceSoapBinding" type="ns1:ProductService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="modifyProduct">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="modifyProduct">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="modifyProductResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="retrieveProductsForCategory">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="retrieveProductsForCategory">
                 <soap:body use="literal"/>
             </wsdl:input>
             <wsdl:output name="retrieveProductsForCategoryResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveProduct">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="retrieveProduct">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="retrieveProductResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteProduct">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteProduct">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteProductResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
