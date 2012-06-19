@@ -15,5 +15,6 @@ public interface AccountService {
 
     public Account modifyAccount(Account account);
     public String deleteAccount(Account account);
+    public Account createAccount(Account account);
 
 }
