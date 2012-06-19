@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 
-@WebService
+@WebService(targetNamespace = "http://acme.com/services")
 public interface CategoryService {
     @WebMethod
     @XmlElementWrapper(name="categories")
@@ -18,7 +18,10 @@ public interface CategoryService {
     @WebMethod
     public String deleteCategory(String categoryId);
 
-    @WebMethod Category modifyCategory(Category category);
+    @WebMethod
+    public Category modifyCategory(Category category);
 
-    @WebMethod Category retrieveCategory(String categoryId);
+    @WebMethod
+    @XmlElement(name = "category")
+    public Category retrieveCategory(String categoryId);
 }

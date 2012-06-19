@@ -5,9 +5,14 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+
     <jaxws:endpoint
             id="categoryService"
             implementor="com.acme.services.CategoryServiceImpl"
+            bindingUri="http://acme.com/services"
+            wsdlLocation="xml/categoryservices.wsdl"
             address="/CategoryService">
     </jaxws:endpoint>
 

@@ -3,14 +3,14 @@ package com.acme.services;
 import com.acme.model.Category;
 
 import javax.jws.WebService;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.ArrayList;
 import java.util.List;
 @WebService(endpointInterface = "com.acme.services.CategoryService",
         name = "CategoryService",
         serviceName = "CategoryService",
         portName = "CategoryPortType",
-        targetNamespace = "http://acme.com/services",
-        wsdlLocation = "xml/categoryservices.wsdl")
+        targetNamespace = "http://acme.com/services")
 public class CategoryServiceImpl implements CategoryService {
 
     @Override

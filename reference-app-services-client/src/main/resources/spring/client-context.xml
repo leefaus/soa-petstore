@@ -2,16 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:jaxws="http://cxf.apache.org/jaxws"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:jps="http://services.acme.com"
        xsi:schemaLocation="
           http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans.xsd
           http://cxf.apache.org/jaxws
           http://cxf.apache.org/schemas/jaxws.xsd">
 
+    <import resource="classpath*:reference-app-services-context.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+
     <jaxws:client id="categoryClient"
                   serviceClass="com.acme.services.CategoryService"
-                  serviceName="jps:CategoryService"
+                  xmlns:e="http://acme.com/services"
+                  serviceName="e:CategoryService"
                   wsdlLocation="xml/categoryservices.wsdl"
             />
 </beans>
