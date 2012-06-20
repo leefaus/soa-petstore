@@ -37,10 +37,6 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category retrieveCategory(String categoryId) {
-        Category cat = new Category();
-        cat.setCategoryId("1234");
-        cat.setName("Cat");
-        cat.setDescription("Cat Fun!");
-        return cat;
+        return categoryDao.findCategoryById(categoryId);
     }
 }

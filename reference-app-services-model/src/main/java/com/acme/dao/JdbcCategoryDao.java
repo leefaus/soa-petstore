@@ -24,4 +24,10 @@ public class JdbcCategoryDao {
         List<Category> categories = jdbcTemplate.query(sql, new CategoryRowMapper());
         return categories;
     }
+
+    public Category findCategoryById(String id) {
+        String sql = "SELECT * FROM CATEGORY WHERE id='" + id + "'";
+        Category category = jdbcTemplate.queryForObject(sql, new CategoryRowMapper());
+        return category;
+    }
 }
