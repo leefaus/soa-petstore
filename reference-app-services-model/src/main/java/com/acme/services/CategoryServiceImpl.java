@@ -15,7 +15,18 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<Category> findAllCategories() {
-        return null;
+        ArrayList<Category> categories = new ArrayList<Category>();
+        Category category = new Category();
+        category.setCategoryId("1");
+        category.setName("Cat");
+        category.setDescription(";alskdjfa;lsdkfj");
+        categories.add(category);
+        Category category1 = new Category();
+        category1.setCategoryId("2");
+        category1.setName("Dog");
+        category1.setDescription("lkasdjf;asldkfj");
+        categories.add(category1);
+        return categories;
     }
 
     @Override

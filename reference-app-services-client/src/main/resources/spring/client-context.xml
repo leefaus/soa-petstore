@@ -8,7 +8,7 @@
           http://cxf.apache.org/jaxws
           http://cxf.apache.org/schemas/jaxws.xsd">
 
-    <import resource="classpath*:reference-app-services-context.xml"/>
+    <import resource="classpath:spring/reference-app-services-context.xml"/>
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
 
@@ -16,6 +16,5 @@
                   serviceClass="com.acme.services.CategoryService"
                   xmlns:e="http://acme.com/services"
                   serviceName="e:CategoryService"
-                  wsdlLocation="xml/categoryservices.wsdl"
-            />
+                  wsdlLocation="xml/categoryservices.wsdl" />
 </beans>
