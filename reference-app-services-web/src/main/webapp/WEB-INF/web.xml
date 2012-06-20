@@ -22,7 +22,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/reference-app-services-context.xml</param-value>
+        <param-value>classpath:spring/application-context.xml</param-value>
     </context-param>
 
     <listener>
