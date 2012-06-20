@@ -19,7 +19,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> retrieveProductsForCategory(String categoryId) {
-        return productDao.retrieveProductsForCategory(categoryId);
+        return productDao.findProductsForCategory(categoryId);
     }
 
     @Override
