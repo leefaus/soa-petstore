@@ -1,6 +1,6 @@
 package com.acme.services;
 
-import com.acme.dao.JdbcCategoryDao;
+import com.acme.dao.CategoryDao;
 import com.acme.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,7 +14,7 @@ import java.util.List;
         targetNamespace = "http://acme.com/services")
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    public JdbcCategoryDao categoryDao;
+    public CategoryDao categoryDao;
 
     @Override
     public List<Category> findAllCategories() {

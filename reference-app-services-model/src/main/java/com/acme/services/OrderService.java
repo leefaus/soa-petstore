@@ -1,7 +1,5 @@
 package com.acme.services;
 
-import com.acme.model.Account;
-import com.acme.model.Item;
 import com.acme.model.Order;
 
 import javax.jws.WebMethod;

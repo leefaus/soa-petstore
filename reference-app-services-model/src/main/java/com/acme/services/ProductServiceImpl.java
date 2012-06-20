@@ -1,6 +1,8 @@
 package com.acme.services;
 
+import com.acme.dao.ProductDao;
 import com.acme.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.jws.WebService;
 import java.util.List;
@@ -12,23 +14,26 @@ import java.util.List;
         targetNamespace = "http://acme.com/services",
         wsdlLocation = "xml/productservices.wsdl")
 public class ProductServiceImpl implements ProductService {
+    @Autowired
+    private ProductDao productDao;
+
     @Override
     public List<Product> retrieveProductsForCategory(String categoryId) {
-        return null;
+        return productDao.retrieveProductsForCategory(categoryId);
     }
 
     @Override
     public String deleteProduct(String productId) {
-        return null;
+        return productDao.deleteProduct(productId);
     }
 
     @Override
     public Product modifyProduct(Product product) {
-        return null;
+        return productDao.modifyProduct(product);
     }
 
     @Override
     public Product retrieveProduct(String productId) {
-        return null;
+        return productDao.retrieveProduct(productId);
     }
 }
