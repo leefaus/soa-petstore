@@ -1,6 +1,10 @@
 package com.acme.services;
 
+import com.acme.dao.JdbcCategoryDao;
 import com.acme.model.Category;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,21 +16,13 @@ import java.util.List;
         portName = "CategoryPortType",
         targetNamespace = "http://acme.com/services")
 public class CategoryServiceImpl implements CategoryService {
+    @Autowired
+    @Qualifier(value = "categoryDao")
+    public JdbcCategoryDao categoryDao;
 
     @Override
     public List<Category> findAllCategories() {
-        ArrayList<Category> categories = new ArrayList<Category>();
-        Category category = new Category();
-        category.setCategoryId("1");
-        category.setName("Cat");
-        category.setDescription(";alskdjfa;lsdkfj");
-        categories.add(category);
-        Category category1 = new Category();
-        category1.setCategoryId("2");
-        category1.setName("Dog");
-        category1.setDescription("lkasdjf;asldkfj");
-        categories.add(category1);
-        return categories;
+        return categoryDao.findAllCategories();
     }
 
     @Override

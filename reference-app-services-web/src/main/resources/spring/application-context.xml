@@ -1,9 +1,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+       "http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <context:component-scan base-package="com.acme" />
+    <context:annotation-config />
     <import resource="classpath:spring/reference-app-services-context.xml"/>
-    <import resource="classpath:spring/reference-app-dao-context.xml"/>
 
 </beans>

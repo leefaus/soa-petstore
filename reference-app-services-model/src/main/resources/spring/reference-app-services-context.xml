@@ -7,6 +7,7 @@
 
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="reference-app-dao-context.xml" />
 
     <jaxws:endpoint
             id="categoryService"
