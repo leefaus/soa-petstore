@@ -5,11 +5,11 @@ import com.acme.model.Product;
 import java.util.List;
 
 public interface ProductDao {
-    public List<Product> retrieveProductsForCategory(String categoryId);
+    List<Product> retrieveProductsForCategory(String categoryId);
 
-    public String deleteProduct(String productId);
+    String deleteProduct(String productId);
 
-    public Product modifyProduct(Product product);
+    Product modifyProduct(Product product);
 
-    public Product retrieveProduct(String productId);
+    Product retrieveProduct(String productId);
 }

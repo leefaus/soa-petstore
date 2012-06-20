@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CategoryDao {
     List<Category> findAllCategories();
+
+    Category findCategoryById(String id);
 }
