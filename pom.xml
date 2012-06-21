@@ -8,9 +8,9 @@
     <version>1.0-SNAPSHOT</version>
     <name>jPetStore Spring-CXF Application</name>
     <modules>
-        <module>reference-app-services-client</module>
         <module>reference-app-services-model</module>
         <module>reference-app-services-web</module>
+        <module>reference-app-services-client</module>
         <!--
         <module>reference-app-web</module>
         -->

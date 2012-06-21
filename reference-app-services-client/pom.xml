@@ -7,11 +7,11 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>jPetStore Spring-CXF Client</name>
-	<parent>
-		<groupId>com.acme.jpetstore</groupId>
-		<artifactId>reference-app</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>com.acme.jpetstore</groupId>
+        <artifactId>reference-app</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <build>
         <finalName>reference-app-client</finalName>
         <plugins>
@@ -29,6 +29,12 @@
             <groupId>com.acme.jpetstore</groupId>
             <artifactId>reference-app-services-model</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.acme.jpetstore</groupId>
+            <artifactId>reference-app-services-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
         </dependency>
     </dependencies>
 </project>
