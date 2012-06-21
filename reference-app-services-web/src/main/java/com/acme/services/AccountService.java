@@ -7,7 +7,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
 
-@WebService
+@WebService(targetNamespace = "http://acme.com/services")
 public interface AccountService {
     @WebMethod
     @XmlElement(name="account")

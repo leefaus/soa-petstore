@@ -1,7 +1,10 @@
 package com.acme;
 
 import com.acme.model.Category;
+import com.acme.model.Product;
 import com.acme.services.CategoryService;
+import com.acme.services.ProductService;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -11,12 +14,35 @@ public class SampleClient {
         ClassPathXmlApplicationContext context
                 = new ClassPathXmlApplicationContext(
                 new String[]{"classpath*:spring/client-context.xml"});
+
+        dumpCategories(context);
+        dumpProducts(context);
+
+        System.exit(0);
+    }
+
+    private static void dumpCategories(ApplicationContext context) {
         CategoryService client = (CategoryService) context.getBean("categoryClient");
 
-        Category reply = client.retrieveCategory("1234");
-        System.out.println("Category Name: " + reply.getName());
-        List<Category> reply2 = client.findAllCategories();
-        System.out.println("Category Size: " + reply2.size());
-        System.exit(0);
+        List<Category> categories = client.findAllCategories();
+        System.out.println("Categories found: " + categories.size());
+        for (Category category : categories) {
+            System.out.println("Found category: " + category.toString());
+        }
+        System.out.println("");
+
+        Category category = client.retrieveCategory("1000");
+        System.out.println("Category 1000, Name: " + category.getName());
+    }
+
+    private static void dumpProducts(ApplicationContext context) {
+        ProductService client = (ProductService) context.getBean("productClient");
+
+        List<Product> products = client.retrieveProductsForCategory("FISH");
+        System.out.println("Products found: " + products.size());
+        for (Product product : products) {
+            System.out.println("Found product: " + product.toString());
+        }
+        System.out.println("");
     }
 }
