@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Category", propOrder = {
+        "id",
         "categoryId",
         "name",
         "description"
@@ -15,12 +16,23 @@ import java.io.Serializable;
         namespace = "http://pets.acme.com/schemas/jpetstore")
 public class Category implements Serializable {
     private static final long serialVersionUID = -7454630869604964843L;
+
+    @XmlElement(name = "Id", required = true)
+    private long id;
     @XmlElement(name = "CategoryId", required = true)
     private String categoryId;
     @XmlElement(name = "Name", required = true)
     private String name;
     @XmlElement(name = "Description", required = true)
     private String description;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getCategoryId() {
         return categoryId;
@@ -49,6 +61,7 @@ public class Category implements Serializable {
     @Override
     public String toString() {
         return new ToStringCreator(this).
+                append("id", id).
                 append("categoryId", categoryId).
                 append("name", name).
                 append("description", description).
