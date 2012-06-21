@@ -13,7 +13,7 @@
             id="categoryService"
             implementor="com.acme.services.CategoryServiceImpl"
             bindingUri="http://acme.com/services"
-            wsdlLocation="xml/categoryservices.wsdl"
+            wsdlLocation="../../../../../reference-app-services-web/src/main/resources/xml/categoryservices.wsdl"
             address="/CategoryService">
     </jaxws:endpoint>
 
