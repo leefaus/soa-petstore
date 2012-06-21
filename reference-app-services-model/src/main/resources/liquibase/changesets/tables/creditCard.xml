@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <preConditions>
+        <dbms type="postgresql"/>
+    </preConditions>
+
+    <changeSet id="1" author="jbedenbaugh">
+        <createSequence sequenceName="seq_category" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
+    </changeSet>
+    <changeSet id="1.1" author="jbedenbaugh">
+        <createTable tableName="account">
+            <column name="creditCardId" type="int" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="number" type="varchar(50)"/>
+            <column name="expiration" type="varchar(50)"/>
+            <column name="billingAddress" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
