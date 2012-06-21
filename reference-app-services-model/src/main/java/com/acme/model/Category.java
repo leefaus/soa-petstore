@@ -1,5 +1,7 @@
 package com.acme.model;
 
+import org.springframework.core.style.ToStringCreator;
+
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
@@ -42,5 +44,14 @@ public class Category implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringCreator(this).
+                append("categoryId", categoryId).
+                append("name", name).
+                append("description", description).
+                toString();
     }
 }

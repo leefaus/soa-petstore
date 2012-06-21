@@ -1,5 +1,7 @@
 package com.acme.model;
 
+import org.springframework.core.style.ToStringCreator;
+
 import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -58,5 +60,15 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringCreator(this).
+                append("productId", productId).
+                append("category", category).
+                append("name", name).
+                append("description", description).
+                toString();
     }
 }

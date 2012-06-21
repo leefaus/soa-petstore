@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 
-@WebService
+@WebService(targetNamespace = "http://acme.com/services")
 public interface OrderService {
 
     @WebMethod
