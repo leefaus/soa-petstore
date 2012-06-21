@@ -29,5 +29,4 @@ public interface OrderService {
 
     @WebMethod
     public String cancelOrder(Order order);
-
 }

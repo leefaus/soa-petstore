@@ -2,14 +2,19 @@ package com.acme.dao.jdbc;
 
 import com.acme.dao.AccountDao;
 import com.acme.model.Account;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
-@Repository("accountDao")
-public class JdbcAccountDao extends NamedParameterJdbcDaoSupport implements AccountDao {
+import javax.sql.DataSource;
 
-    private JdbcTemplate jdbcTemplate;
+@Repository("accountDao")
+public class JdbcAccountDao extends JdbcDaoSupport implements AccountDao {
+    @Autowired
+    public JdbcAccountDao(DataSource dataSource) {
+        setDataSource(dataSource);
+    }
+
     private static final String CREATE_ACCOUNT = "INSERT INTO ACCOUNT  (accountId, userName, lastName, firstName, emailAddress, homePhone, cellPhone)"
             + " values ?, ?, ?, ?, ?, ?, ?";
     private static final String DELETE_ACCOUNT = "DELETE FROM ACCOUNT WHERE accountId = ?";
@@ -24,7 +29,8 @@ public class JdbcAccountDao extends NamedParameterJdbcDaoSupport implements Acco
 
     public Account createAccount(Account account) {
 
-        this.jdbcTemplate.update(CREATE_ACCOUNT, new Object[]{account.getAccountId(),
+        getJdbcTemplate().update(CREATE_ACCOUNT,
+                account.getAccountId(),
                 account.getUserName(),
                 account.getUserName(),
                 account.getLastName(),
@@ -32,26 +38,27 @@ public class JdbcAccountDao extends NamedParameterJdbcDaoSupport implements Acco
                 account.getEmailAddress(),
                 account.getHomePhone(),
                 account.getCellPhone(),
-                account.getAccountId()});
+                account.getAccountId());
         return account;
     }
 
     public String deleteAccount(Account account) {
-        this.jdbcTemplate.update(DELETE_ACCOUNT, new Object[]{account.getAccountId()});
+        getJdbcTemplate().update(DELETE_ACCOUNT, account.getAccountId());
         return "deleted";
     }
 
     public Account modifyAccount(Account account) {
-        this.jdbcTemplate.update(MODIFY_ACCOUNT, new Object[]{account.getAccountId(),
+        getJdbcTemplate().update(MODIFY_ACCOUNT,
+                account.getAccountId(),
                 account.getUserName(),
                 account.getUserName(),
                 account.getLastName(),
                 account.getFirstName(),
                 account.getEmailAddress(),
                 account.getHomePhone(),
-                account.getCellPhone()});
+                account.getCellPhone(),
+                account.getAccountId());
 
         return account;
     }
-
 }
