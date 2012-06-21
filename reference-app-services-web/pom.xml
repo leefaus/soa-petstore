@@ -68,6 +68,7 @@
                     <archiveClasses>true</archiveClasses>
                     <attachClasses>true</attachClasses>
                 </configuration>
+                <version>2.2</version>
             </plugin>
         </plugins>
     </build>

@@ -16,5 +16,5 @@
                   serviceClass="com.acme.services.CategoryService"
                   xmlns:e="http://acme.com/services"
                   serviceName="e:CategoryService"
-                  wsdlLocation="../../../../../reference-app-services-web/src/main/resources/xml/categoryservices.wsdl" />
+                  wsdlLocation="xml/categoryservices.wsdl" />
 </beans>
