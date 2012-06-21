@@ -9,40 +9,23 @@
         <dbms type="postgresql"/>
     </preConditions>
 
-    <changeSet id="1" author="leefaus">
+    <changeSet id="1" author="jbedenbaugh">
         <createSequence sequenceName="seq_category" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
     </changeSet>
-    <changeSet id="1.1" author="leefaus">
-        <createTable tableName="category">
-            <column name="id" type="int" defaultValue="nextval('seq_category')">
+    <changeSet id="1.1" author="jbedenbaugh">
+        <createTable tableName="account">
+            <column name="accountId" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(50)">
+            <column name="username" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="description" type="varchar(250)"/>
+            <column name="lastName" type="varchar(50)"/>
+            <column name="firstName" type="varchar(50)"/>
+            <column name="emailAddress" type="varchar(50)"/>
+            <column name="homePhone" type="varchar(50)"/>
+            <column name="cellPhone" type="varchar(50)"/>
         </createTable>
     </changeSet>
-    <changeSet id="1.2" author="leefaus">
-        <insert tableName="category">
-            <column name="name" value="Fish" />
-            <column name="description" value="Fish Description" />
-        </insert>
-        <insert tableName="category">
-            <column name="name" value="Dogs" />
-            <column name="description" value="Dogs Description" />
-        </insert>
-        <insert tableName="category">
-            <column name="name" value="Reptiles" />
-            <column name="description" value="Reptiles Description" />
-        </insert>
-        <insert tableName="category">
-            <column name="name" value="Cats" />
-            <column name="description" value="Cats Description" />
-        </insert>
-        <insert tableName="category">
-            <column name="name" value="Birds" />
-            <column name="description" value="Birds Description" />
-        </insert>
-    </changeSet>
 </databaseChangeLog>
+
