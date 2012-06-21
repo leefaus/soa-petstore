@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <preConditions>
+        <dbms type="postgresql"/>
+    </preConditions>
+
+    <changeSet id="1" author="leefaus">
+        <createTable tableName="product">
+            <column name="id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="category" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(80)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(250)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1.1" author="leefaus">
+        <insert tableName="product">
+            <column name="id" value="FI-SW-01" />
+            <column name="category" value="FISH" />
+            <column name="name" value="Angelfish" />
+            <column name="description" value="Salt Water fish from Australia" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="FI-SW-02" />
+            <column name="category" value="FISH" />
+            <column name="name" value="Tiger Shark" />
+            <column name="description" value="Salt Water fish from Australia" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="FI-FW-01" />
+            <column name="category" value="FISH" />
+            <column name="name" value="Koi" />
+            <column name="description" value="Fresh Water fish from Japan" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="FI-FW-02" />
+            <column name="category" value="FISH" />
+            <column name="name" value="Goldfish" />
+            <column name="description" value="Fresh Water fish from China" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-BD-01" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Bulldog" />
+            <column name="description" value="Friendly dog from England" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-PO-02" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Poodle" />
+            <column name="description" value="Cute dog from France" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-DL-01" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Dalmation" />
+            <column name="description" value="Great dog for a Fire Station" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-RT-01" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Golden Retriever" />
+            <column name="description" value="Great family dog" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-RT-02" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Labrador Retriever" />
+            <column name="description" value="Great hunting dog" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="K9-CW-01" />
+            <column name="category" value="DOGS" />
+            <column name="name" value="Chihuahua" />
+            <column name="description" value="Great companion dog" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="RP-SN-01" />
+            <column name="category" value="REPTILES" />
+            <column name="name" value="Rattlesnake" />
+            <column name="description" value="Doubles as a watch dog" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="RP-LI-02" />
+            <column name="category" value="REPTILES" />
+            <column name="name" value="Iguana" />
+            <column name="description" value="Friendly green friend" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="FL-DSH-01" />
+            <column name="category" value="CATS" />
+            <column name="name" value="Manx" />
+            <column name="description" value="Great for reducing mouse populations" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="FL-DLH-02" />
+            <column name="category" value="CATS" />
+            <column name="name" value="Persian" />
+            <column name="description" value="Friendly house cat, doubles as a princess" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="AV-CB-01" />
+            <column name="category" value="BIRDS" />
+            <column name="name" value="Amazon Parrot" />
+            <column name="description" value="Great companion for up to 75 years" />
+        </insert>
+        <insert tableName="product">
+            <column name="id" value="AV-SB-02" />
+            <column name="category" value="BIRDS" />
+            <column name="name" value="Finch" />
+            <column name="description" value="Great stress reliever" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>
