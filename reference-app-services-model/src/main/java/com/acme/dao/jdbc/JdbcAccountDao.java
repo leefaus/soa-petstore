@@ -3,10 +3,11 @@ package com.acme.dao.jdbc;
 import com.acme.dao.AccountDao;
 import com.acme.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 @Repository("accountDao")
-public class JdbcAccountDao extends JdbcDao implements AccountDao {
+public class JdbcAccountDao extends NamedParameterJdbcDaoSupport implements AccountDao {
 
     private JdbcTemplate jdbcTemplate;
     private static final String CREATE_ACCOUNT = "INSERT INTO ACCOUNT  (accountId, userName, lastName, firstName, emailAddress, homePhone, cellPhone)"
