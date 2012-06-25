@@ -130,4 +130,12 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet id="1.4" author="sfrederick">
+        <createIndex tableName="product" indexName="product_primary_key">
+            <column name="id"/>
+        </createIndex>
+        <createIndex tableName="product" indexName="product_business_key">
+            <column name="productId"/>
+        </createIndex>
+    </changeSet>
 </databaseChangeLog>
