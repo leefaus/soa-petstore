@@ -15,11 +15,11 @@ import java.util.List;
 @Repository("productDao")
 public class JdbcProductDao extends NamedParameterJdbcDaoSupport implements ProductDao {
     private static final String GET_PRODUCT_SQL =
-            "SELECT id as productId, category as categoryId, name, description " +
+            "SELECT id, productId, category as categoryId, name, description " +
                     "FROM product " +
-                    "WHERE id = :productId";
+                    "WHERE productId = :productId";
     private static final String FIND_PRODUCT_BY_CATEGORY_SQL =
-            "SELECT id as productId, category as categoryId, name, description " +
+            "SELECT id, productId, category as categoryId, name, description " +
                     "FROM product " +
                     "WHERE category = :categoryId";
 

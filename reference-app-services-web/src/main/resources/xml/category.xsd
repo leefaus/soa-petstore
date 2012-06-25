@@ -18,6 +18,7 @@
     </xs:complexType>
     <xs:complexType name="Category">
         <xs:sequence>
+            <xs:element name="Id" type="xs:string"/>
             <xs:element name="CategoryId" type="xs:string"/>
             <xs:element name="Name" type="xs:string"/>
             <xs:element name="Description" type="xs:string"/>
