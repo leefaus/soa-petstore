@@ -12,6 +12,3 @@ Pre-requisites:
 * Install PostgreSQL 9.x
 * Create a database called soa-petstore using pgAdmin
 
-* test
-* another test
-

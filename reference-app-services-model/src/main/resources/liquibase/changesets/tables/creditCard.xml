@@ -10,12 +10,16 @@
     </preConditions>
 
     <changeSet id="1" author="jbedenbaugh">
-        <createSequence sequenceName="seq_category" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
+        <createSequence sequenceName="seq_creditcard" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
     </changeSet>
     <changeSet id="1.1" author="jbedenbaugh">
-        <createTable tableName="account">
-            <column name="creditCardId" type="int" >
+        <createTable tableName="creditcard">
+            <column name="id" type="int" defaultValue="nextval('seq_creditcard')">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="creditCardId" type="int" >
+                <constraints nullable="false"/>
             </column>
             <column name="type" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -25,4 +29,14 @@
             <column name="billingAddress" type="varchar(50)"/>
         </createTable>
     </changeSet>
+    <changeSet id="1.2" author="jbedenbaugh">
+          <insert tableName="creditcard">
+              <column name="creditCardId" value="1000" />
+              <column name="type" value="VISA" />
+              <column name="number" value="5498344509859857" />
+              <column name="expiration" value="09/13" />
+              <column name="billingAddress" value="1600 Pennsylvania Avenue Washington D.C. 22443" />
+          </insert>
+      </changeSet>
+
 </databaseChangeLog>

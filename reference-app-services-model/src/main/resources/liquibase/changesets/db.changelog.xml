@@ -7,4 +7,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
     <include file="tables/category.xml" relativeToChangelogFile="true" />
     <include file="tables/product.xml" relativeToChangelogFile="true" />
+    <include file="tables/account.xml" relativeToChangelogFile="true" />
+    <include file="tables/address.xml" relativeToChangelogFile="true" />
+    <include file="tables/creditCard.xml" relativeToChangelogFile="true" />
 </databaseChangeLog>
