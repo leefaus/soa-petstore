@@ -7,15 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcDaoSupport;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
 
 @Repository("categoryDao")
-public class JdbcCategoryDao extends NamedParameterJdbcDaoSupport implements CategoryDao {
+public class JdbcCategoryDao extends JdbcDaoSupport implements CategoryDao {
     private final static String FIND_ALL_CATEGORIES_SQL = "SELECT * FROM CATEGORY";
-    private final static String FIND_CATEGORY_BY_ID_SQL = "SELECT * FROM CATEGORY WHERE categoryId = :categoryId";
+    private final static String FIND_CATEGORY_BY_ID_SQL = "SELECT * FROM CATEGORY WHERE \"categoryId\" = ?";
 
     @Autowired
     public JdbcCategoryDao(DataSource dataSource) {
@@ -23,14 +24,12 @@ public class JdbcCategoryDao extends NamedParameterJdbcDaoSupport implements Cat
     }
 
     public List<Category> findAllCategories() {
-        return getNamedParameterJdbcTemplate().query(FIND_ALL_CATEGORIES_SQL,
-                (SqlParameterSource) null, new CategoryRowMapper());
+        return getJdbcTemplate().query(FIND_ALL_CATEGORIES_SQL,
+                new CategoryRowMapper());
     }
 
     public Category findCategoryById(String categoryId) {
-        MapSqlParameterSource paramSource = new MapSqlParameterSource("categoryId", categoryId);
-
-        return getNamedParameterJdbcTemplate().queryForObject(FIND_CATEGORY_BY_ID_SQL,
-                paramSource, new CategoryRowMapper());
+        return getJdbcTemplate().queryForObject(FIND_CATEGORY_BY_ID_SQL,
+                new CategoryRowMapper(), categoryId);
     }
 }

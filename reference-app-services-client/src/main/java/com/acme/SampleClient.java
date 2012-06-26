@@ -30,8 +30,8 @@ public class SampleClient {
         }
         System.out.println("");
 
-        Category category = client.retrieveCategory("1000");
-        System.out.println("Category 1000, Name: " + category.getName());
+        Category category = client.retrieveCategory("DOGS");
+        System.out.println("Category DOGS: " + category.toString());
     }
 
     private static void dumpProducts(ApplicationContext context) {
