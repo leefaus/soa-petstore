@@ -8,7 +8,6 @@
     <artifactId>reference-app-services-mule</artifactId>
     <name>jPetStore Spring-CXF Mule</name>
     <version>1.0</version>
-    <packaging>jar</packaging>
 
     <properties>
         <mule.version>3.1.1</mule.version>
@@ -16,6 +15,7 @@
         <vmtype>org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType</vmtype>
         <jdk5Name>J2SE-1.5</jdk5Name>
         <jdk.version>1.6</jdk.version>
+        <mule.home>/Users/lfaus/Projects/runtimes/mule-standalone-3.3.0</mule.home>
     </properties>
 
     <build>
@@ -38,7 +38,7 @@
             <plugin>
                 <groupId>org.mule.tools</groupId>
                 <artifactId>maven-mule-plugin</artifactId>
-                <version>1.4</version>
+                <version>1.7</version>
                 <extensions>true</extensions>
             </plugin>
             <plugin>
@@ -60,6 +60,14 @@
                     </descriptors>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -99,7 +107,7 @@
                         <configuration>
                             <rules>
                                 <requireProperty>
-                                    <property environment="env">env.MULE_HOME</property>
+                                    <property environment="env">mule.home</property>
                                     <message>You must set MULE_HOME before installing the example.</message>
                                 </requireProperty>
                             </rules>
@@ -113,10 +121,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.4</version>
+                <version>1.7</version>
                 <executions>
                     <execution>
-                        <id>package-example</id>
+                        <id>package-app</id>
                         <phase>install</phase>
                         <goals>
                             <goal>run</goal>
@@ -124,7 +132,7 @@
                         <configuration>
                             <tasks>
                                 <copy file="${project.build.directory}/${build.finalName}.zip"
-                                      todir="${env.MULE_HOME}/apps" overwrite="true"/>
+                                      todir="${mule.home}/apps" overwrite="true"/>
                             </tasks>
                         </configuration>
                     </execution>

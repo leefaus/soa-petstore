@@ -20,12 +20,12 @@
             </includes>
         </fileSet>
         <fileSet>
-            <directory>examples</directory>
-            <outputDirectory>lib</outputDirectory>
+            <directory>src/main/mule</directory>
+            <outputDirectory/>
         </fileSet>
         <fileSet>
-            <directory></directory>
-            <outputDirectory></outputDirectory>
+            <directory/>
+            <outputDirectory/>
             <includes>
                 <include>README.txt</include>
                 <include>LICENSE.txt</include>
