@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Product", propOrder = {
+        "id",
         "productId",
         "category",
         "name",
@@ -14,6 +15,9 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "Product",
         namespace = "http://pets.acme.com/schemas/jpetstore")
 public class Product {
+
+    @XmlElement(name = "Id", required = true)
+    private long id;
     @XmlElement(name = "ProductId", required = true)
     private String productId;
     @XmlElement(name = "Category", required = true)
@@ -28,6 +32,14 @@ public class Product {
 
     public Product(String productId) {
         this.productId = productId;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getProductId() {
@@ -65,10 +77,12 @@ public class Product {
     @Override
     public String toString() {
         return new ToStringCreator(this).
+                append("id", id).
                 append("productId", productId).
                 append("category", category).
                 append("name", name).
                 append("description", description).
                 toString();
     }
+
 }

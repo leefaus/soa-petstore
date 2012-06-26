@@ -19,13 +19,13 @@ public class JdbcAccountDao extends JdbcDaoSupport implements AccountDao {
             + " values ?, ?, ?, ?, ?, ?, ?";
     private static final String DELETE_ACCOUNT = "DELETE FROM ACCOUNT WHERE accountId = ?";
     private static final String MODIFY_ACCOUNT = "UPDATE ACCOUNT SET accountId = ?, " +
-            "                                                       userName = ?, " +
-            "                                                       lastName = ?, " +
-            "                                                       firstName = ?, " +
-            "                                                       emailAddress = ?, " +
-            "                                                       homePhone = ?, " +
-            "                                                       cellPhone= ? " +
-            "                                                       WHERE accountId = ?";
+            "userName = ?, " +
+            "lastName = ?, " +
+            "firstName = ?, " +
+            "emailAddress = ?, " +
+            "homePhone = ?, " +
+            "cellPhone= ? " +
+            "WHERE accountId = ?";
 
     public Account createAccount(Account account) {
 

@@ -11,9 +11,8 @@ import java.util.List;
 
 public class SampleClient {
     public static void main(String args[]) {
-        ClassPathXmlApplicationContext context
-                = new ClassPathXmlApplicationContext(
-                new String[]{"classpath*:spring/client-context.xml"});
+        ClassPathXmlApplicationContext context =
+                new ClassPathXmlApplicationContext("classpath*:spring/client-context.xml");
 
         dumpCategories(context);
         dumpProducts(context);
