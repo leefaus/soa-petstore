@@ -348,7 +348,7 @@
             <id>mule-snapshot</id>
             <url>http://snapshots.repository.codehaus.org/</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
 
