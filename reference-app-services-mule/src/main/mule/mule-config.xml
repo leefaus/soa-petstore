@@ -18,6 +18,6 @@
           http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/3.1/mule-vm.xsd
           http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/3.1/mule-cxf.xsd">
 
-    <!-- Sample Mule Config -->
+    <!-- Sample Mule Config (Test 2) -->
 
 </mule>
