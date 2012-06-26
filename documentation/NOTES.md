@@ -13,4 +13,5 @@ Pre-requisites:
 * Create a database called soa-petstore using pgAdmin
 
 * test
+* another test
 
