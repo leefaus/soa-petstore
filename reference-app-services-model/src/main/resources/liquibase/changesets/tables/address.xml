@@ -10,12 +10,16 @@
     </preConditions>
 
     <changeSet id="1" author="jbedenbaugh">
-        <createSequence sequenceName="seq_category" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
+        <createSequence sequenceName="seq_address" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
     </changeSet>
     <changeSet id="1.1" author="jbedenbaugh">
-        <createTable tableName="account">
-            <column name="addressId" type="int" >
+        <createTable tableName="address">
+
+            <column name="id" type="int" defaultValue="nextval('seq_address')">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="addressId" type="int">
+                <constraints nullable="false"/>
             </column>
             <column name="street1" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -27,4 +31,16 @@
             <column name="country" type="varchar(50)"/>
         </createTable>
     </changeSet>
+    <changeSet id="1.2" author="jbedenbaugh">
+        <insert tableName="address">
+            <column name="addressId" value="1000"/>
+            <column name="street1" value="1600 Pennsylvania Avenue"/>
+            <column name="street2" value=""/>
+            <column name="city" value="Washington D.C."/>
+            <column name="state" value=""/>
+            <column name="zipCode" value="22443"/>
+            <column name="country" value="USA"/>
+        </insert>
+    </changeSet>
+
 </databaseChangeLog>
