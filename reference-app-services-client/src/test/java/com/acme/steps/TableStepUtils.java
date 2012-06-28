@@ -13,32 +13,32 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class TableStepUtils {
-    static void verifyTable(DataTable table, Object... expectedValues) {
-        int expectedRows = table.asMaps().size();
-        assertTrue("Expected at least " + expectedRows +
-                " rows, but got only "+ expectedValues.length + " rows.",
-                expectedRows <= expectedValues.length);
+    static void verifyTable(DataTable table, Object... actualValues) {
+        int expectedRowCount = table.asMaps().size();
+        assertTrue("Expected at least " + expectedRowCount +
+                " rows, but got only " + actualValues.length + " rows.",
+                expectedRowCount <= actualValues.length);
 
-        int index = 0;
+        int actualRowIndex = 0;
         for (Map<String, String> map : table.asMaps()) {
-            Set<Map.Entry<String,String>> entries = map.entrySet();
-            Object expectedValue = expectedValues[index];
-            for (Map.Entry<String, String> entry : entries) {
-                BeanWrapper wrapper = PropertyAccessorFactory.forBeanPropertyAccess(expectedValue);
+            Set<Map.Entry<String, String>> expectedRowValues = map.entrySet();
 
-                String propertyName = entry.getKey();
-                String propertyValue = entry.getValue();
+            BeanWrapper actualValue = PropertyAccessorFactory.forBeanPropertyAccess(actualValues[actualRowIndex]);
+
+            for (Map.Entry<String, String> expectedValue : expectedRowValues) {
+                String propertyName = expectedValue.getKey();
+                String propertyValue = expectedValue.getValue();
 
                 try {
-                    assertEquals(propertyValue, wrapper.getPropertyValue(propertyName).toString());
+                    assertEquals(propertyValue, actualValue.getPropertyValue(propertyName).toString());
                 } catch (BeansException e) {
                     fail("Property with name " + propertyName + " was not found on the bean " +
-                            wrapper.getWrappedInstance());
+                            actualValue.getWrappedInstance());
                 }
 
             }
 
-            index++;
+            actualRowIndex++;
         }
     }
 }

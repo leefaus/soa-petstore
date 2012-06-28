@@ -1,6 +1,5 @@
 package com.acme.steps;
 
-import com.acme.model.Category;
 import com.acme.model.Product;
 import com.acme.services.ProductService;
 import cucumber.annotation.en.Given;
@@ -13,6 +12,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@SuppressWarnings("UnusedDeclaration")
 public class ProductSteps {
     @Autowired
     private ProductService serviceClient;
