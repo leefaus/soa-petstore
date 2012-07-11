@@ -1,0 +1,29 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>core-spring-bootloader</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <baseDirectory>target</baseDirectory>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.outputDirectory}</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>com/sample/*.class</include>
+                <include>gemfire-extension/*.xml</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <includes>
+                <include>com.acme.jpetstore:reference-app-services-model</include>
+            </includes>
+            <unpack>false</unpack>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets>
+</assembly>

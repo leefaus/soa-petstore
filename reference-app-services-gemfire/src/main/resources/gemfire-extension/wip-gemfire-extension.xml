@@ -12,6 +12,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-    <gfe:replicated-region id="http-session-region" name="gemfire_modules_sessions" persistent="false" />
+    <gfe:replicated-region id="http-session-region" name="wip" persistent="false" />
 
 </beans>

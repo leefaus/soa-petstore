@@ -1,3 +1,5 @@
+package sf.icp.gemfire.base;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,7 +33,7 @@ public class SpringBootLoader implements Runnable {
     }
 
     public ApplicationContext loadSpringContainer() {
-        String springContextFile = "application-context.xml";
+        String springContextFile = "gemfire-context.xml";
         return new ClassPathXmlApplicationContext(springContextFile);
     }
 
