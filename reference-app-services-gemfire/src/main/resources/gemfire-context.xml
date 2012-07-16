@@ -12,10 +12,15 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
+
     <gfe:cache id="gemfire-cache" properties-ref="props" />
+
+
     <util:properties id="props" location="classpath:cache.properties" />
 
+    <!--
     <import resource="classpath:base/*-gemfire-extension.xml" />
-    <import resource="classpath:gemfire-extension/*-gemfire-extension.xml" />
+    <import resource="classpath*:gemfire-extension/*-gemfire-extension.xml" />
+    -->
 
 </beans>

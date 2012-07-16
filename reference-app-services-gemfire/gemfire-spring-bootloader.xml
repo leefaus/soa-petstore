@@ -13,7 +13,7 @@
             <outputDirectory></outputDirectory>
             <includes>
                 <include>sf/icp/gemfire/base/*.class</include>
-                <include>base</include>
+                <include>base/*-gemfire-extension.xml</include>
                 <include>gemfire-extension</include>
                 <include>gemfire-context.xml</include>
             </includes>

@@ -1,5 +1,6 @@
 package sf.icp.gemfire.base;
 
+import com.gemstone.gemfire.cache.server.CacheServer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -47,6 +48,8 @@ public class SpringBootLoader implements Runnable {
 
     public static void main(String[] args) throws Exception {
         SpringBootLoader app = new SpringBootLoader();
+
+
         app.loadSpringContainer();
         System.err.println("SpringBootLoader: instance " + app.hashCode() +
                 " init " + args.length);

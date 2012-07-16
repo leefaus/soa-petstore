@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-    <bean id="http-session" p:name="gemfire_modules_sessions" class="org.springframework.data.gemfire.RegionFactoryBean"
+    <bean id="http-session" p:name="sample_region" class="org.springframework.data.gemfire.RegionFactoryBean"
           p:cache-ref="gemfire-cache">
         <property name="attributes">
             <bean class="org.springframework.data.gemfire.RegionAttributesFactoryBean"
@@ -20,7 +20,6 @@
                   p:statisticsEnabled="true"
                   p:dataPolicy="PARTITION"
                   p:partitionAttributes-ref="partitionAttributesFactory"
-                  p:poolName="sessions"
                   p:entryIdleTimeout-ref="expirationAttrs">
             </bean>
         </property>
@@ -32,7 +31,7 @@
 
     <bean id="expirationAttrs" class="com.gemstone.gemfire.cache.ExpirationAttributes">
         <constructor-arg value="0"/>
-        <constructor-arg value="com.gemstone.gemfire.cache.ExpirationAction.INVALIDATE"/>
+        <constructor-arg value="INVALIDATE" type="com.gemstone.gemfire.cache.ExpirationAction"/>
     </bean>
 
 </beans>

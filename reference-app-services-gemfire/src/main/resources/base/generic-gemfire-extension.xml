@@ -12,6 +12,16 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-    <gfe:replicated-region id="generic-region" name="generic-key-value" persistent="false" />
+    <bean id="generic-region" p:name="generic-key-value" class="org.springframework.data.gemfire.RegionFactoryBean"
+          p:cache-ref="gemfire-cache">
+        <property name="attributes">
+            <bean class="org.springframework.data.gemfire.RegionAttributesFactoryBean"
+                  p:enableGateway="true"
+                  p:statisticsEnabled="true"
+                  p:dataPolicy="REPLICATE">
+            </bean>
+        </property>
+    </bean>
+
 
 </beans>
