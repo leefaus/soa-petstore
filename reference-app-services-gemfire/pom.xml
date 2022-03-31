@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.version>5.3.18</spring.version>
         <commons.daemon>1.0.9</commons.daemon>
     </properties>
 
