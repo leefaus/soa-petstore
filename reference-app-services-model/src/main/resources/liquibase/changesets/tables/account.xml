@@ -10,12 +10,17 @@
     </preConditions>
 
     <changeSet id="1" author="jbedenbaugh">
-        <createSequence sequenceName="seq_category" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
+        <createSequence sequenceName="seq_account" startValue="1000" incrementBy="2" minValue="50" maxValue="100000"/>
     </changeSet>
     <changeSet id="1.1" author="jbedenbaugh">
         <createTable tableName="account">
-            <column name="accountId" type="int">
+
+            <column name="id" type="int" defaultValue="nextval('seq_account')">
                 <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="accountId" type="int">
+                <constraints nullable="false"/>
             </column>
             <column name="username" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -27,5 +32,17 @@
             <column name="cellPhone" type="varchar(50)"/>
         </createTable>
     </changeSet>
+    <changeSet id="1.2" author="jbedenbaugh">
+          <insert tableName="account">
+              <column name="accountId" value="1000  " />
+              <column name="username" value="MrWipple" />
+              <column name="lastName" value="Wipple" />
+              <column name="firstName" value="George" />
+              <column name="emailAddress" value="gwipple@charmin.com" />
+              <column name="homePhone" value="9188887766" />
+              <column name="cellPhone" value="4042240021" />
+          </insert>
+      </changeSet>
+
 </databaseChangeLog>
 

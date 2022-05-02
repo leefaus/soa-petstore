@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:script="http://www.mulesoft.org/schema/mule/scripting"
+      xmlns:spring="http://www.springframework.org/schema/beans" xmlns:pattern="http://www.mulesoft.org/schema/mule/pattern"
+      xsi:schemaLocation="
+       http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+       http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+       http://www.mulesoft.org/schema/mule/pattern http://www.mulesoft.org/schema/mule/pattern/current/mule-pattern.xsd
+       http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd">
+
+    <pattern:http-proxy name="exception-http-proxy">
+        <http:inbound-endpoint address="http://localhost:9080/proxy/CategoryService" />
+        <http:outbound-endpoint address="http://localhost:8080/reference-app/services/CategoryService" />
+        <default-exception-strategy />
+    </pattern:http-proxy>
+
+</mule>

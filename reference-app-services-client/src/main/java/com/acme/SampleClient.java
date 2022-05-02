@@ -30,8 +30,9 @@ public class SampleClient {
         }
         System.out.println("");
 
-        Category category = client.retrieveCategory("1000");
-        System.out.println("Category 1000, Name: " + category.getName());
+        Category category = client.retrieveCategory("DOGS");
+        System.out.println("Category DOGS: " + category.toString());
+        System.out.println("");
     }
 
     private static void dumpProducts(ApplicationContext context) {
@@ -42,6 +43,10 @@ public class SampleClient {
         for (Product product : products) {
             System.out.println("Found product: " + product.toString());
         }
+        System.out.println("");
+
+        Product product = client.retrieveProduct("K9-BD-01");
+        System.out.println("Product K9-BD-01 = " + product);
         System.out.println("");
     }
 }

@@ -14,14 +14,18 @@ import java.util.List;
 
 @Repository("productDao")
 public class JdbcProductDao extends NamedParameterJdbcDaoSupport implements ProductDao {
-    private static final String GET_PRODUCT_SQL =
-            "SELECT id, productId, category as categoryId, name, description " +
+    private static final String SELECT_PRODUCT_SQL =
+            "SELECT product.id, product.\"productId\", product.name, product.description, " +
+                    "category.id as \"category.id\", category.\"categoryId\" as \"category.categoryId\", " +
+                    "category.name as \"category.name\", category.description as \"category.description\" " +
                     "FROM product " +
-                    "WHERE productId = :productId";
-    private static final String FIND_PRODUCT_BY_CATEGORY_SQL =
-            "SELECT id, productId, category as categoryId, name, description " +
-                    "FROM product " +
-                    "WHERE category = :categoryId";
+                    "LEFT OUTER JOIN category ON product.category = category.\"categoryId\" ";
+
+    private static final String GET_PRODUCT_SQL = SELECT_PRODUCT_SQL +
+            "WHERE \"productId\" = :productId";
+
+    private static final String FIND_PRODUCT_BY_CATEGORY_SQL = SELECT_PRODUCT_SQL +
+            "WHERE category = :categoryId";
 
     private final ProductRowMapper rowMapper = new ProductRowMapper();
 

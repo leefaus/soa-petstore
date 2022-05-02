@@ -21,7 +21,7 @@ public class Product {
     @XmlElement(name = "ProductId", required = true)
     private String productId;
     @XmlElement(name = "Category", required = true)
-    private Category category;
+    private Category category = new Category();
     @XmlElement(name = "Name", required = true)
     private String name;
     @XmlElement(name = "Description", required = true)
